@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css"; // CSS file for styling
+import { Link } from "react-router-dom";
 
 function LoginPage() {
   return (
@@ -38,16 +39,22 @@ function LoginPage() {
             <input type="checkbox" id="terms" required />
             <label htmlFor="terms">I agree to terms & conditions</label>
           </div>
-          <button type="submit" className="btn primary-btn">
-            Sign in
+
+          <Link to="/chat">
+          <button className="btn primary-btn">
+              Sign in
           </button>
+          </Link>
+
+
         </form>
         <div className="separator">or</div>
         <button className="btn google-btn">Login with Google</button>
+        {/* <Link to="/signup"> */}
         <p className="signup-link">
-          Already have an Account? <a href="/login">Create an account</a>
+          Don't have an Account? <a href="/signup">Create an account</a>
         </p>
-        
+ 
         {/* Forgot Password Link */}
         <p className="forgot-password-link">
           <a href="/forgot-password">Forgot Password?</a>

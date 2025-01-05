@@ -1,0 +1,138 @@
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+}
+
+.app-container {
+  display: flex;
+  height: 100vh;
+  background-color: #1e1e2f;
+  color: white;
+}
+
+/* Sidebar styles */
+.sidebar {
+  width: 250px;
+  background-color: #2b2b3b;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  gap: 10px;
+  color: black; /* Set text color to black */
+}
+
+.menu-item.active {
+  background-color: white;
+  color: black;
+}
+
+.menu-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.upgrade-button {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.upgrade-button button {
+  padding: 10px 20px;
+  background-color: #7b2bb5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Main content styles */
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  position: relative;
+}
+
+/* Top bar with icons */
+.top-bar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.top-icons img {
+  width: 25px;
+  height: 25px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+/* Centered heading */
+.center-heading {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.center-heading h1 {
+  font-size: 36px;
+  margin: 0;
+}
+
+.center-heading p {
+  margin: 10px 0;
+  color: #aaa;
+}
+
+/* Query box at the bottom */
+.query-box {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  position: absolute;
+  bottom: 20px;
+  width: calc(100% - 20px);
+}
+
+.query-box input {
+  flex-grow: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+.query-box button {
+  padding: 10px 20px;
+  background-color: #7b2bb5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Align logo and heading horizontally */
+.logo-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.logo-title img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
