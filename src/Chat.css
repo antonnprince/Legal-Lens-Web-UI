@@ -14,24 +14,27 @@ body {
 
 /* Sidebar styles */
 .sidebar {
-  width: 250px;
+  width: 300px;
   background-color: #2b2b3b;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 20px;
+  align-items: center;
+  
 }
 
 .menu {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 }
 
 .menu-item {
   display: flex;
   align-items: center;
   padding: 10px 15px;
+  width: 230px;
   cursor: pointer;
   border-radius: 5px;
   gap: 10px;
@@ -63,9 +66,11 @@ body {
   background-color: #7b2bb5;
   color: white;
   border: none;
+  width: 230px;;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+  
 }
 
 .upgrade-button button:hover {
@@ -93,9 +98,10 @@ body {
 
 .chat-message {
   margin: 10px 0;
-  padding: 10px;
+  padding: 20px;
   border-radius: 10px;
-  max-width: 70%;
+  font-size: 18px;
+  /* max-width: 90%; */
 }
 
 .chat-message.user {
@@ -156,10 +162,12 @@ body {
 
 .query-box input {
   flex-grow: 1;
-  padding: 10px;
-  border-radius: 5px;
+  padding: 17px;
+  border-radius: 10px;
+  box-shadow: #1e1e2f 5px 5px 5px ;
   border: none;
   outline: none;
+  margin-bottom: 20px;
 }
 
 .query-box button {
@@ -170,6 +178,7 @@ body {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+  margin-bottom: 20px;
 }
 
 .query-box button:hover {
