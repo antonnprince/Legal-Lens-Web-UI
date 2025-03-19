@@ -2,8 +2,11 @@ import express from 'express'
 import dotenv from 'dotenv'
 import mongoose from 'mongoose'
 import {Users} from "./userSchema.js"
+import cors from 'cors'
+
 dotenv.config()
 const app = express()
+app.use(cors())
 app.use(express.json())
 
 const mongoURL = process.env.mongo_url
@@ -11,12 +14,12 @@ const mongoURL = process.env.mongo_url
 mongoose.connect(mongoURL).then(()=>{
     console.log("Database connected")
     app.listen(4000, ()=>{
-        console.log(App is listening at 3000)
+        console.log('App is listening at 3000')
     })
     }).catch((error)=>{
         console.log(error)
     })
-#login with email and password
+//login with email and password
 app.get('/login', async(req,res)=>{
     try {
         const {email,password} = req.body
@@ -31,7 +34,7 @@ app.get('/login', async(req,res)=>{
  
 })
 
-#user register
+//user register
 app.post('/create_user', async(req, res)=>{
     try {
         const user = req.body
@@ -42,7 +45,7 @@ app.post('/create_user', async(req, res)=>{
     }
 })
 
-#searching legal professionals for users
+//searching legal professionals for users
 app.get('/search', async(req, res)=>{
     try {
         const {special} = req.body
@@ -53,7 +56,7 @@ app.get('/search', async(req, res)=>{
     }
 })
 
-#to get information about user
+//to get information about user
 app.get('/get_user', async(req,res)=>{
     try {
          const {email} = req.body
@@ -64,7 +67,7 @@ app.get('/get_user', async(req,res)=>{
     }
 })
 
-#dont use this now
+//dont use this now
 app.put('/update_history', async (req, res) => {
     const { email, index, newContent } = req.body;
 
