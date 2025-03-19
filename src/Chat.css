@@ -59,11 +59,13 @@ body {
 .upgrade-button {
   text-align: center;
   padding: 10px 0;
+  position:absolute;
+  bottom: 300px;
 }
 
 .upgrade-button button {
   padding: 10px 20px;
-  background-color: #7b2bb5;
+  background-color: #8a67c6;
   color: white;
   border: none;
   width: 230px;;
@@ -173,7 +175,7 @@ body {
 
 .query-box button {
   padding: 10px 20px;
-  background-color: #7b2bb5;
+  background-color: #8a67c6;
   color: white;
   border: none;
   border-radius: 5px;
@@ -198,4 +200,28 @@ body {
   width: 40px;
   height: 40px;
   object-fit: contain;
+}
+.user-profile {
+  position: absolute;
+  bottom: 40px;  /* Adjust this value to align it properly */
+  left: 5px; /* Keep it aligned with sidebar content */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 10px;
+  width: calc(100% - 40px); /* Prevent overflow */
+}
+
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-name {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
 }

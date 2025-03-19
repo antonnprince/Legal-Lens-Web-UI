@@ -56,6 +56,10 @@ function Chat() {
           <button>Upgrade to Pro</button>
           <p>Unlock powerful features with our pro upgrade today!</p>
         </div>
+        <div className="user-profile" onClick={() => window.location.href = "/profile"}>
+  <img src="../icons/user.jpg" alt="User Profile" className="profile-pic" />
+  <span className="profile-name">Jeorge Thomas</span>
+</div>
       </div>
       </div>
 

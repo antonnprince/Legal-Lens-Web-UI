@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaGoogle } from 'react-icons/fa';
 import './SignupForm.css';
 
 const SignupForm = () => {
+  const [userType, setUserType] = useState('');
+
   return (
     <div className="signup-container">
       {/* Left section with form */}
@@ -13,14 +15,46 @@ const SignupForm = () => {
 
         <form>
           <label htmlFor="fullname">Your fullname*</label>
-          <input type="text" id="fullname" placeholder="enter your fullname" required />
+          <input type="text" id="fullname" placeholder="Enter your fullname" required />
 
           <label htmlFor="email">Your email*</label>
-          <input type="email" id="email" placeholder="enter your email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+          <input type="email" id="email" placeholder="Enter your email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
               title="Enter a valid email address"/>
 
           <label htmlFor="password">Password*</label>
           <input type="password" id="password" placeholder="Enter your password" required />
+
+          {/* User type selection */}
+          <div className="user-type">
+            <label>User Type</label>
+            <div className="radio-group">
+              <div>
+                <input
+                  type="radio"
+                  id="legalConsultant"
+                  name="userType"
+                  value="Legal Consultant"
+                  checked={userType === "Legal Consultant"}
+                  onChange={(e) => setUserType(e.target.value)}
+                  required
+                />
+                <label htmlFor="legalConsultant">Legal Consultant</label>
+              </div>
+
+              <div>
+                <input
+                  type="radio"
+                  id="civilian"
+                  name="userType"
+                  value="Civilian"
+                  checked={userType === "Civilian"}
+                  onChange={(e) => setUserType(e.target.value)}
+                  required
+                />
+                <label htmlFor="civilian">Civilian</label>
+              </div>
+            </div>
+          </div>
 
           <div className="terms">
             <input type="checkbox" id="terms" required />
@@ -39,7 +73,7 @@ const SignupForm = () => {
         </button>
 
         <p className="login-link">
-          Already have an Account?<button className="link-btn">Login</button>
+          Already have an Account? <button className="link-btn">Login</button>
         </p>
       </div>
 
