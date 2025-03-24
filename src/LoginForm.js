@@ -1,70 +1,105 @@
 import React from "react";
 import "./App.css"; // CSS file for styling
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import axios from 'axios'
+
 
 function LoginPage() {
+  const [user,setUser] = useState({email:"",password:""})
+  const navigate = useNavigate()
+
+  const getInfo = async (e) => {
+    e.preventDefault(); 
+    try {
+      const res = await axios.get(`http://localhost:3000/login/${user.email}/${user.password}`);
+      if (res.data) {
+        localStorage.setItem('user', JSON.stringify(res.data)); 
+        if(res.data.role!='Civilian')
+        {
+          navigate('/chat')
+        }
+        else
+        {
+          navigate('/search')
+        }
+        
+      } else {
+        console.log("No user found");
+      }
+    } catch (error) {
+      console.error("Error fetching user data:", error);  // Log the error to help debug issues
+    }
+  };
+  
   return (
-    <div className="login-container">
+    <div className="login-container ">
       <div className="login-form">
-        <div className="logo">
-          <img src="/logo.png" alt="LegalLens " className="logo" />
-          <h1>LegalLens</h1>
+        
+        <div className="flex flex-row">
+          <img src="/logo2.png" alt="LegalLens " className="logo h-32 w-32 mb-8" />
         </div>
-        <h2>Login</h2>
-        <form>
-          <div className="form-group">
-            <label htmlFor="email">Your email*</label>
+
+       
+        <h2
+        className="text-3xl font-semibold text-center"
+        >Login Here</h2>
+        <form onSubmit={getInfo}>
+
+          <div className="form-group my-8">
+            <label htmlFor="email"
+            className="text-lg font-bold mb-0"
+            >Your email*</label>
             <input
               type="email"
               id="email"
               placeholder="Enter your email"
-              required
+              required  
+              className="mb-8 rounded-lg"
               pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
               title="Enter a valid email address"
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="password">Password*</label>
+
+              onChange={(e)=>{setUser((prevUser) => ({
+                ...prevUser,          // Spread operator to keep other fields unchanged
+                email: e.target.value // Update only the 'email' field
+              }));
+               console.log(user)}}
+            />  
+
+            <label htmlFor="password"
+            className="text-lg font-bold"
+            >Password*</label>
             <input
               type="password"
               id="password"
               placeholder="Enter your password"
               required
+              onChange={(e)=>{
+                setUser((prevUser) => ({
+                  ...prevUser,          // Spread operator to keep other fields unchanged
+                  password: e.target.value // Update only the 'email' field
+                }));
+                ; console.log(user)}}
             />
-            <button type="button" className="toggle-password">
-              👁
-            </button>
-          </div>
-          <div className="form-group">
-            <input type="checkbox" id="terms" required />
-            <label htmlFor="terms">I agree to terms & conditions</label>
+            
+              <input type="checkbox" id="terms" required />
+              <label htmlFor="terms">I agree to terms & conditions</label>
           </div>
 
-          <Link to="/chat">
-          <button className="btn primary-btn">
+          
+          <button 
+          type="submit"
+          className="btn primary-btn">
               Sign in
           </button>
-          </Link>
-
-
         </form>
+
+
         <div className="separator">or</div>
-        <button className="btn google-btn">Login with Google</button>
         {/* <Link to="/signup"> */}
         <p className="signup-link">
           Don't have an Account? <a href="/signup">Create an account</a>
         </p>
- 
-        {/* Forgot Password Link */}
-        <p className="forgot-password-link">
-          <a href="/forgot-password">Forgot Password?</a>
-        </p>
-      </div>
-      <div className="login-image">
-        <img
-          src="https://bharatchugh.in/wp-content/uploads/2020/12/pexels-photo-5669602.jpeg?w=823" // Replace with actual scales image
-          alt="Scales of Justice"
-        />
       </div>
     </div>
   );

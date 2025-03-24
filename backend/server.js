@@ -4,7 +4,6 @@ import mongoose from 'mongoose'
 import cors from 'cors'
 import {Users} from "./userSchema.js"
 
-
 dotenv.config()
 const app = express()
 app.use(express.json())
@@ -21,16 +20,22 @@ mongoose.connect(mongoURL).then(()=>{
         console.log(error)
     })
 // #login with email and password
-app.get('/login', async(req,res)=>{
+app.get('/login/:email/:password', async (req, res) => {
     try {
-        const {email,password} = req.body
-        const result = await Users.findOne({email:email, password:password})
-        res.status(200).json(result)
+        const { email, password } = req.params;
+        
+        const result = await Users.findOne({ email: email, password: password });
+
+        if (result) {
+            res.status(200).json(result);
+        } else {
+            res.status(404).json({ message: "Enter proper credentials and try again!" });
+        }        
     } catch (error) {
-        res.status(400).json({message:"User not found"})
+        res.status(400).json({ message: "User not found" });
     }
- 
-})
+});
+
 
 // #user register
 app.post('/create_user', async(req, res)=>{

@@ -6,12 +6,16 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #1e1e2f;
-  color: #ffffff;
+  height: 100vh;
+  width: 100vw;
+  /* color: #ffffff; */
+  overflow: hidden;
 }
 
 .login-container {
   display: flex;
-  height: 100vh;
+  max-width: 100%;
+  max-height: fit-content;
   align-items: center;
   justify-content: center;
   background-color: #1e1e2f;
@@ -26,33 +30,14 @@ body {
   flex-direction: column;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
-  
-}
-
-.logo h1 {
-  font-size: 5opx;
-}
-
-h2 {
-  margin-bottom: 1rem;
-}
-
-.form-group {
-  margin-bottom: 1rem;
-}
 
 input[type="email"],
 input[type="password"] {
   width: 100%;
   padding: 0.75rem;
   border: none;
-  border-radius: 4px;
-  margin-top: 0.5rem;
+  border-radius: 100px;
+  /* margin-top: 0.5rem; */
 }
 
 input[type="checkbox"] {
