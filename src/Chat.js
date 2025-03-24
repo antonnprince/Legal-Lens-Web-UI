@@ -12,11 +12,12 @@ function Chat() {
     setUserInput("");
 
     try {
-      const res = await axios.post("http://localhost:4000/user_query", { query });
+      const res = await axios.post("https://6b5d-34-125-202-187.ngrok-free.app/predict", { text:query });
       if (res) {
+        console.log(res)
         setChatHistory((prev) => [
           ...prev,
-          { sender: "bot", message: res.data.message },
+          { sender: "bot", message: res.data.prediction },
         ]);
       }
     } catch (error) {
