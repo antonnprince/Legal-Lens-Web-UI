@@ -1,0 +1,136 @@
+/* Full page container */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+.profile-container-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #1e1e2e;
+    color: white;
+    position: relative;
+  }
+  
+  /* Back button */
+  .back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  /* Title section */
+  .title-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .logo {
+    width: 40px;
+  }
+  
+  .app-title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  /* Profile Container (with different background) */
+  .profile-container {
+    background-color: #2b2b3b; /* Different color */
+    padding: 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+  }
+  
+  /* Welcome text */
+  .welcome-text {
+    font-size: 18px;
+  }
+  
+  /* Profile section */
+  .profile-section {
+    position: relative;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .profilepage-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+  
+  .edit-icon {
+    position: absolute;
+    bottom: 10px;
+    right: 5px;
+    font-size: 14px;
+    background: white;
+    color: black;
+    border-radius: 50%;
+    padding: 3px;
+  }
+  
+  /* User name */
+  .user-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  /* Dropdowns */
+  .dropdown {
+    margin: 10px 0;
+    width: 200px;
+  }
+  
+  .dropdown-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #8a67c6;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .dropdown-content {
+    background-color: #2a2a3a;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  /* Logout Button */
+  .logout-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    background-color: #8a67c6;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .logout-icon {
+    width: 16px;
+    margin-left: 5px;
+  }
+  

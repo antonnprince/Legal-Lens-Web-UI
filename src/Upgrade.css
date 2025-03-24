@@ -1,0 +1,114 @@
+.container {
+    text-align: center;
+    padding: 20px;
+    background-color: #2a2a3d;
+    color: white;
+  }
+  
+  .title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .plans {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .plan {
+    background: #1b1b2a;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    border: 1px solid #333;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .plan:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+  }
+
+  .plan h2 {
+    font-size: 20px;
+  }
+  
+  .price {
+    font-size: 22px;
+    margin: 10px 0;
+  }
+  
+  .price span {
+    font-size: 14px;
+    color: #aaa;
+  }
+  
+  .description {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  
+  .features {
+    text-align: left;
+    padding-left: 10px;
+  }
+  
+  .features li {
+    margin: 5px 0;
+  }
+  
+  .btn {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .btn:hover {
+    opacity: 0.8;
+  }
+
+  .disabled {
+    background: gray;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+  
+  .plus-btn {
+    background: #0a84ff;
+    color: white;
+    border: none;
+  }
+  
+  .pro-btn {
+    background: #8a67c6;
+    color: white;
+    border: none;
+  }
+  
+  .badge {
+    background: green;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-left: 5px;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .plans {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .plan {
+      width: 90%;
+    }
+  }

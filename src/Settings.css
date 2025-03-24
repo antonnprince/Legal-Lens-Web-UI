@@ -1,0 +1,98 @@
+.settings-container {
+    background-color: #121212;
+    color: white;
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    border-radius: 10px;
+  }
+  
+  .settings-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .settings-section {
+    margin-bottom: 20px;
+  }
+  
+  .settings-section label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #aaa;
+  }
+  
+  .profile-url {
+    display: flex;
+    align-items: center;
+  }
+  
+  .profile-url span {
+    color: #777;
+  }
+  
+  .profile-url input {
+    flex-grow: 1;
+    margin-left: 5px;
+  }
+  
+  .logo-upload {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .logo-upload img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+  }
+  
+  .replace-btn, .delete-btn {
+    background: #333;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .theme-options, .table-options {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .theme-options button, .table-options button {
+    background: #1e1e1e;
+    color: white;
+    border: 1px solid #333;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .theme-options .active, .table-options .active {
+    border-color: #0a84ff;
+    background: #0a84ff;
+  }
+  
+  .settings-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .cancel-btn {
+    background: gray;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .save-btn {
+    background: #0a84ff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
