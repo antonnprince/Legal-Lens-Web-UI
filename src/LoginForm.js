@@ -24,17 +24,19 @@ function LoginPage() {
           navigate('/search')
         }
         
-      } else {
-        console.log("No user found");
+      } 
+      else {
+        alert("No user found in try");
       }
     } catch (error) {
-      console.error("Error fetching user data:", error);  // Log the error to help debug issues
+      alert("No user found");
+      window.location.reload();
     }
   };
   
   return (
     <div className="login-container ">
-      <div className="login-form">
+      <div className="login-form my-4">
         
         <div className="flex flex-row">
           <img src="/logo2.png" alt="LegalLens " className="logo h-32 w-32 mb-8" />
@@ -42,14 +44,14 @@ function LoginPage() {
 
        
         <h2
-        className="text-3xl font-semibold text-center"
+        className="text-3xl font-bold text-center"
         >Login Here</h2>
         <form onSubmit={getInfo}>
 
           <div className="form-group my-8">
             <label htmlFor="email"
             className="text-lg font-bold mb-0"
-            >Your email*</label>
+            >Your email</label>
             <input
               type="email"
               id="email"
@@ -68,7 +70,7 @@ function LoginPage() {
 
             <label htmlFor="password"
             className="text-lg font-bold"
-            >Password*</label>
+            >Password</label>
             <input
               type="password"
               id="password"
@@ -93,13 +95,11 @@ function LoginPage() {
               Sign in
           </button>
         </form>
-
-
-        <div className="separator">or</div>
-        {/* <Link to="/signup"> */}
-        <p className="signup-link">
-          Don't have an Account? <a href="/signup">Create an account</a>
-        </p>
+     
+          <p className="signup-link">
+            Don't have an Account? <a href="/signup">Create an account</a>
+          </p>
+     
       </div>
     </div>
   );
