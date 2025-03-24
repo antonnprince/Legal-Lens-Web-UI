@@ -38,15 +38,23 @@ app.get('/login/:email/:password', async (req, res) => {
 
 
 // #user register
-app.post('/create_user', async(req, res)=>{
+app.post('/create_user', async (req, res) => {
     try {
-        const user = req.body
-        await Users.create(user)
-        res.status(200).json({message:"Successfully created"})
+      const { email, password, name, role } = req.body;
+  
+      // Check if the user already exists
+      const userCheck = await Users.findOne({ email });
+      if (!userCheck) {
+        await Users.create({ email, password, name, role });
+        res.status(201).json({ message: "User created successfully" });
+      } else {
+        res.status(409).json({ message: "User already exists! Please use a different email" });
+      }
     } catch (error) {
-        res.status(400).json(error)
+      console.error(error); 
+      res.status(500).json({ message: "Server error. Please try again later." });
     }
-})
+  });
 
 // #searching legal professionals for users
 app.get('/search/:special', async(req, res)=>{

@@ -1,56 +1,105 @@
-import React from 'react';
-import { FaGoogle } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './SignupForm.css';
+import axios from 'axios';
 
 const SignupForm = () => {
+  const [email, setEmail] = useState("")
+  const [pw, setpw] = useState("")
+  const [role, setRole] = useState("Civilian")
+  const [name,setName] = useState("")
+
+  const navigate = useNavigate()
+
+  const handleRoleChange=(e)=>{
+    setRole(e.target.value)
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent form refresh
+  
+    try {
+      const res = await axios.post('http://localhost:3000/create_user', {
+        email: email,
+        password: pw,
+        role: role,
+        name: name,
+      });
+  
+      if (res.status === 201) {
+        alert('User created successfully');
+        navigate('/')
+      }
+    } catch (error) {
+      if (error.response && error.response.status === 409) {
+        alert('User already exists'); // Handle 409 Conflict
+      } else {
+        alert('Something went wrong. Please try again later.');
+      }
+    }
+  };
+  
+  
+
   return (
-    <div className="signup-container">
-      {/* Left section with form */}
+    <div className="signup-container my-4">
+     
       <div className="form-box">
-        <img src="/logo.png" alt="LegalLens " className="logo" />
-        <h2>Create an Account</h2>
+        <h2 className='text-3xl font-bold'>Create an Account</h2>
         <p>Kindly fill in your details to create an account</p>
 
         <form>
           <label htmlFor="fullname">Your fullname*</label>
-          <input type="text" id="fullname" placeholder="enter your fullname" required />
+          <input type="text" id="fullname" 
+          value={name}
+          onChange={(e)=>setName(e.target.value)}
+          placeholder="enter your fullname" required />
 
           <label htmlFor="email">Your email*</label>
-          <input type="email" id="email" placeholder="enter your email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-              title="Enter a valid email address"/>
+          <input type="email" id="email" 
+          value={email}
+          onChange={(e)=>setEmail(e.target.value)}
+          placeholder="enter your email" 
+          title="Enter a valid email address"/>
 
           <label htmlFor="password">Password*</label>
-          <input type="password" id="password" placeholder="Enter your password" required />
+          <input type="password" 
+          value={pw}
+          onChange={(e)=>setpw(e.target.value)}
+          id="password" placeholder="Enter your password" required />
+
+
+          <div className='flex flex-row space-x-4'>
+            <input
+              type="radio"
+              value="Civilian"
+              checked={role === 'Civilian'}
+              onChange={handleRoleChange}
+            />
+            Civilian
+
+            <input
+            type="radio"
+            value="Legal Professional"
+            checked={role === 'Legal Professional'}
+            onChange={handleRoleChange}
+            />
+            Legal Professional
+          </div>
 
           <div className="terms">
             <input type="checkbox" id="terms" required />
             <label htmlFor="terms">I agree to terms & conditions</label>
           </div>
-
-          <button type="submit" className="signup-btn">Sign up</button>
+          <button onClick={handleSubmit} className="signup-btn">Sign up</button>
         </form>
-
-        <div className="divider">
-          <span>or</span>
-        </div>
-
-        <button className="google-btn">
-          <FaGoogle /> Register with Google
-        </button>
-
+        
+            
         <p className="login-link">
-          Already have an Account?<button className="link-btn">Login</button>
+          Already have an Account?<button className="link-btn"><a href='/'>Login</a></button>
         </p>
       </div>
 
-      {/* Right section with justice scale image using external link */}
-      <div className="image-box">
-        <img
-          src="https://bharatchugh.in/wp-content/uploads/2020/12/pexels-photo-5669602.jpeg?w=823"
-          alt="Justice Scale"
-          className="justice-image"
-        />
-      </div>
     </div>
   );
 };
