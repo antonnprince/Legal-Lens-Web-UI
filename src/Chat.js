@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./Chat.css";
 import axios from "axios";
+import ProgressBar from "./ProgressBar";
+
 
 function Chat() {
   const [userInput, setUserInput] = useState("");
@@ -12,7 +14,7 @@ function Chat() {
     setUserInput("");
 
     try {
-      const res = await axios.post("https://ca31-35-247-132-13.ngrok-free.app/predict", { text: query });
+      const res = await axios.post("https://544c-35-240-143-241.ngrok-free.app/predict", { text: query });
       if (res && res.data) {
         const botMessage = res.data.prediction;
 
@@ -82,10 +84,15 @@ function Chat() {
                       {point}
                     </li>
                   ))}
+                    <li>
+                      Analyzing the arguments, estimated probability is <span className="font-bold">63%</span>
+                      <ProgressBar/>
+                    </li>
                 </ul>
               ) : (
                 chat.message
               )}
+             
             </div>
           ))}
         </div>
