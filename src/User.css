@@ -1,5 +1,5 @@
 .main{
-    background-color: #2a2a2c;
+    background-color: #1e1e2f;
     display: flex;
     height: 100vh;
     margin: 0;
@@ -39,11 +39,8 @@
 .search-btn {
     position: absolute;
     color: white;
-    padding-top: 10px;
-    padding-right: 5px;
-    background-color: #6200ea;
+    background-color: #7b2bb5;
     cursor: pointer;
-    border-radius: 15%;
 }
 .card-display{
     display: flex;
@@ -57,10 +54,10 @@
 .card {
     background-color: #ffffff;
     border-radius: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    max-width: 250px;
-    max-height: fit-content;
+    box-shadow: 0 4px 15px rgba(103, 84, 84, 0.1);
+    padding: 10px;
+    max-width: 350px;
+    max-height: 300px;
     text-align: center;
     margin-right: 20px;
 }

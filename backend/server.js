@@ -113,3 +113,25 @@ app.put('/update_history', async (req, res) => {
         res.status(500).json({ message: "Server error", error });
     }
 });
+
+app.post("/add_spcl", async (req, res) => {
+    try {
+        const { email, specialization } = req.body;
+
+        const result = await Users.updateOne(
+            { email: email },  // Find the user by email
+            { $set: { specialization: specialization } },  // Update the specialization field (add or modify it)
+            { upsert: false }  // Prevent creating a new document if not found
+        );
+
+        if (result.modifiedCount > 0) {
+            res.status(200).json({ message: "Specialization updated successfully" });
+        } else {
+            res.status(404).json({ message: "User not found" });
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Internal server error" });
+    }
+});
+

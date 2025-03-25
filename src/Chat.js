@@ -12,7 +12,7 @@ function Chat() {
     setUserInput("");
 
     try {
-      const res = await axios.post("https://6b5d-34-125-202-187.ngrok-free.app/predict", { text:query });
+      const res = await axios.post("https://06f0-34-87-84-12.ngrok-free.app/predict", { text:query });
       if (res) {
         console.log(res)
         setChatHistory((prev) => [
@@ -47,6 +47,10 @@ function Chat() {
           <div className="menu-item">
             <img src="../icons/aiassistant.png" alt="Personalities" className="menu-icon" />
             AI Personalities
+          </div>
+          <div className="menu-item">
+            <img src="../icons/setting.png" alt="Settings" className="menu-icon" />
+            <a href="/profile">Profile</a>
           </div>
           <div className="menu-item">
             <img src="../icons/setting.png" alt="Settings" className="menu-icon" />

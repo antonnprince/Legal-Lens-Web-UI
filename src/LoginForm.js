@@ -38,10 +38,6 @@ function LoginPage() {
     <div className="login-container ">
       <div className="login-form my-4">
         
-        <div className="flex flex-row">
-          <img src="/logo2.png" alt="LegalLens " className="logo h-32 w-32 mb-8" />
-        </div>
-
        
         <h2
         className="text-3xl font-bold text-center"

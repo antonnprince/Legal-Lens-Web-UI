@@ -89,11 +89,13 @@ body {
 .chat-window {
   flex: 1;
   overflow-y: auto;
+  margin-bottom: 30px;
   padding: 10px;
   border: 1px solid #ccc;
   margin-bottom: 10px;
   background-color: #2b2b3b;
   border-radius: 5px;
+  max-height: 600px;
 }
 
 .chat-message {
@@ -152,7 +154,7 @@ body {
 /* Query box at the bottom */
 .query-box {
   display: flex;
-  gap: 10px;
+  /* gap: 10px; */
   align-items: center;
   position: absolute;
   bottom: 20px;
@@ -165,10 +167,9 @@ body {
   padding: 17px;
   border-radius: 10px;
   box-shadow: #1e1e2f 5px 5px 5px ;
-  
   border: none;
   outline: none;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 .query-box button {
