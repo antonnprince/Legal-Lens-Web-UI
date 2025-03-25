@@ -12,6 +12,7 @@ function Chat() {
     setUserInput("");
 
     try {
+<<<<<<< HEAD
       const res = await axios.post("https://ca31-35-247-132-13.ngrok-free.app/predict", { text: query });
       if (res && res.data) {
         const botMessage = res.data.prediction;
@@ -21,6 +22,11 @@ function Chat() {
           ? botMessage.split("\n\n") // Split response if paragraphs exist.
           : [botMessage]; // Otherwise, keep as a single item.
 
+=======
+      const res = await axios.post("https://06f0-34-87-84-12.ngrok-free.app/predict", { text:query });
+      if (res) {
+        console.log(res)
+>>>>>>> c8afd2bab5426fbb2fb0dde1b6d54832021f7dde
         setChatHistory((prev) => [
           ...prev,
           { sender: "bot", message: messageAsPoints }, // Store message as an array of strings (points).
