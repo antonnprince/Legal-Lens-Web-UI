@@ -12,19 +12,25 @@ function Chat() {
     setUserInput("");
 
     try {
-      const res = await axios.post("https://06f0-34-87-84-12.ngrok-free.app/predict", { text:query });
-      if (res) {
-        console.log(res)
+      const res = await axios.post("https://ca31-35-247-132-13.ngrok-free.app/predict", { text: query });
+      if (res && res.data) {
+        const botMessage = res.data.prediction;
+
+        // Add bullet points logic here if message contains multiple sections.
+        const messageAsPoints = botMessage.includes("\n\n")
+          ? botMessage.split("\n\n") // Split response if paragraphs exist.
+          : [botMessage]; // Otherwise, keep as a single item.
+
         setChatHistory((prev) => [
           ...prev,
-          { sender: "bot", message: res.data.prediction },
+          { sender: "bot", message: messageAsPoints }, // Store message as an array of strings (points).
         ]);
       }
     } catch (error) {
       console.error("Error sending query:", error);
       setChatHistory((prev) => [
         ...prev,
-        { sender: "bot", message: "Sorry, something went wrong." },
+        { sender: "bot", message: ["Sorry, something went wrong."] },
       ]);
     }
   };
@@ -33,13 +39,11 @@ function Chat() {
     <div className="app-container">
       {/* Sidebar */}
       <div className="sidebar">
-        {/* Sidebar content */}
-        <div className="sidebar">
-          <div className="menu">
-           <div className="menu-item active">
-             <img src="../icons/chats.png" alt="Chat" className="menu-icon" />
-             Chat
-            </div>
+        <div className="menu">
+          <div className="menu-item active">
+            <img src="../icons/chats.png" alt="Chat" className="menu-icon" />
+            Chat
+          </div>
           <div className="menu-item">
             <img src="../icons/chathistory.png" alt="History" className="menu-icon" />
             Chat History
@@ -62,7 +66,6 @@ function Chat() {
           <p>Unlock powerful features with our pro upgrade today!</p>
         </div>
       </div>
-      </div>
 
       {/* Main Content Area */}
       <div className="main-content">
@@ -72,7 +75,17 @@ function Chat() {
               key={index}
               className={`chat-message ${chat.sender === "user" ? "user" : "bot"}`}
             >
-              {chat.message}
+              {Array.isArray(chat.message) ? (
+                <ul className="bot-response-list">
+                  {chat.message.map((point, idx) => (
+                    <li key={idx} className="chat-point">
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                chat.message
+              )}
             </div>
           ))}
         </div>
