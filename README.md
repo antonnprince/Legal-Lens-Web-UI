@@ -48,12 +48,12 @@ Training Method: Supervised Fine-Tuning (SFT)
 
 Use Cases: Argument generation, outcome prediction, precedent discovery
 
-##🎥 Sample Demo Video
+## 🎥 Sample Demo Video
 ![Live-Demo](./public/legal_lens.mp4)
 
-##🛠 Tech Stack
-###⚛️ React – Frontend UI
-###💬 LLaMA 3.2 – LLM backend (custom fine-tuned)
-###📦 Express / Flask – API
-###📍 Vector Search / Retrieval Augmented Generation 
+## 🛠 Tech Stack
+### ⚛️ React – Frontend UI
+### 💬 LLaMA 3.2 – LLM backend (custom fine-tuned)
+### 📦 Express / Flask – API
+### 📍 Vector Search / Retrieval Augmented Generation 
 
