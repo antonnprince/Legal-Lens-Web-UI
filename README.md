@@ -21,3 +21,39 @@
 ```bash
 git clone https://github.com/antonnprince/Legal-Lens.git
 cd Legal-Lens
+```
+
+### 2. Install dependencies
+```bash
+npm install
+cd backend
+npm install
+```
+
+### 3.Run the App
+```bash
+npm start
+```
+Open http://localhost:3000 to use Legal Lens in your browser.
+
+## 📦 Backend Model
+The model was trained and fine-tuned using a curated dataset of legal cases.
+
+🧠 Model Repository:
+🔗 https://github.com/antonnprince/Legal-Lens
+
+Model: LLaMA 3.2 3B
+
+Training Method: Supervised Fine-Tuning (SFT)
+
+Use Cases: Argument generation, outcome prediction, precedent discovery
+
+##🎥 Sample Demo Video
+![Live-Demo](./public/legal_lens.mp4)
+
+##🛠 Tech Stack
+###⚛️ React – Frontend UI
+###💬 LLaMA 3.2 – LLM backend (custom fine-tuned)
+###📦 Express / Flask – API
+###📍 Vector Search / Retrieval Augmented Generation 
+
